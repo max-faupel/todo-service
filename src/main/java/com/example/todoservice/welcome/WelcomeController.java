@@ -1,4 +1,4 @@
-package com.example.rest.todo.welcome;
+package com.example.todoservice.welcome;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;

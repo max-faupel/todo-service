@@ -1,4 +1,4 @@
-package com.example.rest.todo.welcome;
+package com.example.todoservice.welcome;
 
 import lombok.AllArgsConstructor;
 
