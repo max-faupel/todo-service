@@ -13,9 +13,9 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
     
-    public List<Todo> findAll() {
+    public List<Todo> findByUsername(String username) {
         List<Todo> todos = new ArrayList<>();
-        todoRepository.findAll().forEach(todo -> todos.add(todo));
+        todoRepository.findByUsername(username).forEach(todo -> todos.add(todo));
         return todos;
     }
 }
