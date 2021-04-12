@@ -1,0 +1,9 @@
+GET http://localhost:8080/welcome
+###
+GET http://localhost:8080/welcome/max
+###
+GET http://localhost:8080/users/max/todos
+###
+DELETE http://localhost:8080/users/max/todos/4
+###
+DELETE http://localhost:8080/users/max/todos/5
