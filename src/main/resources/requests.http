@@ -6,4 +6,6 @@ GET http://localhost:8080/users/max/todos
 ###
 DELETE http://localhost:8080/users/max/todos/4
 ###
-DELETE http://localhost:8080/users/max/todos/5
+DELETE http://localhost:8080/users/max/todos/3
+###
+GET http://localhost:8080/users/max/todos/2

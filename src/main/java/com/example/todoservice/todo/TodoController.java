@@ -1,6 +1,7 @@
 package com.example.todoservice.todo;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -21,6 +22,15 @@ public class TodoController {
     @GetMapping("/users/{username}/todos")
     public List<Todo> getTodos(@PathVariable String username) {
         return todoService.findByUsername(username);
+    }
+
+    @GetMapping("/users/{username}/todos/{id}")
+    public ResponseEntity<Todo> getTodos(@PathVariable String username, @PathVariable Long id) {
+        Optional<Todo> todo = todoService.findById(id);
+        if (todo.isPresent()) {
+            return ResponseEntity.ok().body(todo.get());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @DeleteMapping(("/users/{username}/todos/{id}"))
