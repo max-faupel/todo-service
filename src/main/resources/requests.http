@@ -9,3 +9,21 @@ DELETE http://localhost:8080/users/max/todos/4
 DELETE http://localhost:8080/users/max/todos/3
 ###
 GET http://localhost:8080/users/max/todos/2
+###
+POST http://localhost:8080/users/max/todos
+content-type: application/json
+
+{
+    "description": "Learn Spring Boot",
+    "targetDate": "2021-05-30 10:00:00",
+    "done": false
+}
+###
+PUT http://localhost:8080/users/max/todos/3
+content-type: application/json
+
+{
+    "description": "Learn Reactive Programming",
+    "targetDate": "2021-06-20 18:00:00",
+    "done": true
+}

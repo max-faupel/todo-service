@@ -25,6 +25,10 @@ public class TodoService {
         return todoRepository.findById(id);
     }
 
+    public Todo findByIdAndUsername(Long id, String username) {
+        return todoRepository.findByIdAndUsername(id, username);
+    }
+
     public boolean deleteTodoById(Long id) {
         try {
             todoRepository.deleteById(id);
@@ -32,5 +36,23 @@ public class TodoService {
             return false;
         }
         return true;
+    }
+
+    public Todo save(String username, Todo todo) {
+        return save(Long.valueOf(-1), username, todo);
+    }
+
+    public Todo save(Long id, String username, Todo todo) {
+        if (id.equals(Long.valueOf(-1))) {
+            todo.setUsername(username);
+            return todoRepository.save(todo);
+        } else {
+            Todo todoToUpdate = findByIdAndUsername(id, username);
+            // TODO: use mapper
+            todoToUpdate.setDescription(todo.getDescription());
+            todoToUpdate.setTargetDate(todo.getTargetDate());
+            todoToUpdate.setDone(todo.isDone());
+            return todoRepository.save(todoToUpdate);
+        }
     }
 }
