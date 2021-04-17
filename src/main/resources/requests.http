@@ -10,6 +10,8 @@ DELETE http://localhost:8080/users/max/todos/3
 ###
 GET http://localhost:8080/users/max/todos/2
 ###
+GET http://localhost:8080/users/max/todos/10
+###
 POST http://localhost:8080/users/max/todos
 content-type: application/json
 
@@ -20,6 +22,15 @@ content-type: application/json
 }
 ###
 PUT http://localhost:8080/users/max/todos/3
+content-type: application/json
+
+{
+    "description": "Learn Reactive Programming",
+    "targetDate": "2021-06-20 18:00:00",
+    "done": true
+}
+###
+PUT http://localhost:8080/users/max/todos/10
 content-type: application/json
 
 {

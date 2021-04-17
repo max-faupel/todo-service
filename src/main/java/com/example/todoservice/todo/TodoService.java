@@ -1,5 +1,6 @@
 package com.example.todoservice.todo;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,17 +17,17 @@ public class TodoService {
 
     @Transactional(readOnly = true)
     public List<Todo> findByUsername(String username) {
-        return todoRepository.findByUsername(username);
+        return Collections.unmodifiableList(todoRepository.findByUsername(username));
     }
 
     @Transactional(readOnly = true)
-    public Optional<Todo> findById(Long id) {
-        return todoRepository.findById(id);
+    public Optional<Todo> find(Long id, String username) {
+        return Optional.ofNullable(todoRepository.findByIdAndUsername(id, username));
     }
 
     @Transactional
-    public boolean deleteTodoById(Long id) {
-        Optional<Todo> todoToDelete = todoRepository.findById(id);
+    public boolean delete(Long id, String username) {
+        Optional<Todo> todoToDelete = Optional.ofNullable(todoRepository.findByIdAndUsername(id, username));
 
         if (todoToDelete.isPresent()) {
             todoRepository.deleteById(id);
@@ -38,21 +39,22 @@ public class TodoService {
 
     @Transactional
     public Todo save(String username, Todo todo) {
-        return save(Long.valueOf(-1), username, todo);
+        todo.setUsername(username);
+        return todoRepository.save(todo);
     }
 
     @Transactional
-    public Todo save(Long id, String username, Todo todo) {
-        if (id.equals(Long.valueOf(-1))) {
-            todo.setUsername(username);
-            return todoRepository.save(todo);
-        } else {
-            Todo todoToUpdate = todoRepository.findByIdAndUsername(id, username);
+    public Optional<Todo> save(Long id, String username, Todo todo) {
+        Optional<Todo> todoToUpdate = find(id, username);
+
+        if (todoToUpdate.isPresent()) {
             // TODO: use mapper
-            todoToUpdate.setDescription(todo.getDescription());
-            todoToUpdate.setTargetDate(todo.getTargetDate());
-            todoToUpdate.setDone(todo.isDone());
-            return todoRepository.save(todoToUpdate);
+            todoToUpdate.get().setDescription(todo.getDescription());
+            todoToUpdate.get().setTargetDate(todo.getTargetDate());
+            todoToUpdate.get().setDone(todo.isDone());
+            return Optional.of(todoRepository.save(todoToUpdate.get()));
         }
+
+        return Optional.empty();
     }
 }

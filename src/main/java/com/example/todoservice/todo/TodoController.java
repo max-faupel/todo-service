@@ -1,6 +1,6 @@
 package com.example.todoservice.todo;
 
-import java.net.URI;
+// import java.net.URI;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+// import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,7 +31,7 @@ public class TodoController {
 
     @GetMapping("/users/{username}/todos/{id}")
     public ResponseEntity<Todo> getTodos(@PathVariable String username, @PathVariable Long id) {
-        Optional<Todo> todo = todoService.findById(id);
+        Optional<Todo> todo = todoService.find(id, username);
 
         if (todo.isPresent()) {
             return ResponseEntity.ok().body(todo.get());
@@ -41,7 +41,7 @@ public class TodoController {
 
     @DeleteMapping(("/users/{username}/todos/{id}"))
     public ResponseEntity<Void> deleteTodo(@PathVariable String username, @PathVariable Long id) {
-        if (todoService.deleteTodoById(id)) {
+        if (todoService.delete(id, username)) {
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
@@ -59,7 +59,12 @@ public class TodoController {
     @PutMapping(("/users/{username}/todos/{id}"))
     public ResponseEntity<Todo> updateTodo(@PathVariable String username, @PathVariable Long id,
             @RequestBody Todo todo) {
-        Todo updatedTodo = todoService.save(id, username, todo);
-        return ResponseEntity.ok().body(updatedTodo);
+        Optional<Todo> updatedTodo = todoService.save(id, username, todo);
+
+        if (updatedTodo.isPresent()) {
+            return ResponseEntity.ok().body(updatedTodo.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
