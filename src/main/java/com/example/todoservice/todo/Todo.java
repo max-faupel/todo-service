@@ -28,8 +28,8 @@ public class Todo {
     private String description;
 
     // TODO: use global format
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date targetDate;
     private boolean done;
 }

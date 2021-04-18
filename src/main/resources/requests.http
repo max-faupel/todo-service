@@ -17,7 +17,7 @@ content-type: application/json
 
 {
     "description": "Learn Spring Boot",
-    "targetDate": "2021-05-30 10:00:00",
+    "targetDate": "2021-05-30",
     "done": false
 }
 ###
@@ -26,7 +26,7 @@ content-type: application/json
 
 {
     "description": "Learn Reactive Programming",
-    "targetDate": "2021-06-20 18:00:00",
+    "targetDate": "2021-06-20",
     "done": true
 }
 ###
@@ -35,6 +35,6 @@ content-type: application/json
 
 {
     "description": "Learn Reactive Programming",
-    "targetDate": "2021-06-20 18:00:00",
+    "targetDate": "2021-06-20",
     "done": true
 }
