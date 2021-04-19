@@ -3,6 +3,7 @@ GET http://localhost:8080/welcome
 GET http://localhost:8080/welcome/max
 ###
 GET http://localhost:8080/users/max/todos
+Authorization: Basic dXNlcjpjYTU1YTQ4NC05NjkzLTRjMWItOWEwZS03MzlkMWZlZjBmMWE=
 ###
 DELETE http://localhost:8080/users/max/todos/4
 ###
