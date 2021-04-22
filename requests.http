@@ -1,19 +1,26 @@
 GET http://localhost:8080/welcome
+Authorization: Basic bWF4OmR1bW15
 ###
 GET http://localhost:8080/welcome/max
+Authorization: Basic bWF4OmR1bW15
 ###
 GET http://localhost:8080/users/max/todos
-Authorization: Basic dXNlcjpjYTU1YTQ4NC05NjkzLTRjMWItOWEwZS03MzlkMWZlZjBmMWE=
+Authorization: Basic bWF4OmR1bW15
 ###
 DELETE http://localhost:8080/users/max/todos/4
+Authorization: Basic bWF4OmR1bW15
 ###
 DELETE http://localhost:8080/users/max/todos/3
+Authorization: Basic bWF4OmR1bW15
 ###
 GET http://localhost:8080/users/max/todos/2
+Authorization: Basic bWF4OmR1bW15
 ###
 GET http://localhost:8080/users/max/todos/10
+Authorization: Basic bWF4OmR1bW15
 ###
 POST http://localhost:8080/users/max/todos
+Authorization: Basic bWF4OmR1bW15
 content-type: application/json
 
 {
@@ -23,6 +30,7 @@ content-type: application/json
 }
 ###
 PUT http://localhost:8080/users/max/todos/3
+Authorization: Basic bWF4OmR1bW15
 content-type: application/json
 
 {
@@ -32,6 +40,7 @@ content-type: application/json
 }
 ###
 PUT http://localhost:8080/users/max/todos/10
+Authorization: Basic bWF4OmR1bW15
 content-type: application/json
 
 {
