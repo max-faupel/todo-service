@@ -1,26 +1,44 @@
-GET http://localhost:8080/welcome
-Authorization: Basic bWF4OmR1bW15
+
+POST http://localhost:8080/authenticate
+Origin: http://localhost:4200
+content-type: application/json
+
+{
+    "username": "max",
+    "password": "dummy"
+}
+###
+GET http://localhost:8080/refresh
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 GET http://localhost:8080/welcome/max
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 GET http://localhost:8080/users/max/todos
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 DELETE http://localhost:8080/users/max/todos/4
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 DELETE http://localhost:8080/users/max/todos/3
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 GET http://localhost:8080/users/max/todos/2
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 GET http://localhost:8080/users/max/todos/10
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 ###
 POST http://localhost:8080/users/max/todos
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 content-type: application/json
 
 {
@@ -30,7 +48,8 @@ content-type: application/json
 }
 ###
 PUT http://localhost:8080/users/max/todos/3
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 content-type: application/json
 
 {
@@ -40,7 +59,8 @@ content-type: application/json
 }
 ###
 PUT http://localhost:8080/users/max/todos/10
-Authorization: Basic bWF4OmR1bW15
+Origin: http://localhost:4200
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJtYXgiLCJleHAiOjE2MTk4OTEzODgsImlhdCI6MTYxOTI4NjU4OH0.J12RLkvYAVpPSnpRc_WOBL0WjICh_zIAj82tNgU-jzRCnndjWeubzAEWCe8iJ8nxClSSd8CYHLqsuQr_Txf7tg
 content-type: application/json
 
 {

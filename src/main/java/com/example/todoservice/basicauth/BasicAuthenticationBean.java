@@ -3,6 +3,7 @@ package com.example.todoservice.basicauth;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
+@Deprecated
 public class BasicAuthenticationBean {
     private String message;
 
