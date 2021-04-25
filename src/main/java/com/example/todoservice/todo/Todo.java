@@ -32,4 +32,10 @@ public class Todo {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date targetDate;
     private boolean done;
+
+    public Todo(String description, Date targetDate, boolean done) {
+        this.description = description;
+        this.targetDate = targetDate;
+        this.done = done;
+    }
 }
